@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/yellow">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="83dp"
+                app:cardBackgroundColor="@color/cardColor" >
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/circle_profile" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ananda Rizky Pratama"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    style="@style/Text.Header"
+                    android:layout_gravity="center"
+                    android:textAlignment="center" >
+                </TextView>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/daftar">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shift"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <TextView
+                style="@style/Text.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:textColor="@color/black"
+                android:text="Shift 1">
+            </TextView>
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:text="11.00-17.00">
+            </TextView>
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/black"
+                android:text="Nomor Pesanan     : 5">
+            </TextView>
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:text="MEJA                           : 1">
+            </TextView>
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/black"
+                android:text="Pesanan                     : ">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pesanan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="left"
+            app:layout_constraintTop_toBottomOf="@+id/shift" >
+
+            <TextView
+                style="@style/Text.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:text="Nasi Ayam Bali">
+            </TextView>
+
+            <TextView
+                style="@style/Text.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="15.000 x 1"
+                android:textColor="@color/black"
+                android:gravity="right"
+                android:layout_marginRight="40dp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pesanan2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="left"
+            app:layout_constraintTop_toBottomOf="@+id/pesanan" >
+
+            <TextView
+                style="@style/Text.Body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:text="Esteh Manis">
+            </TextView>
+
+            <TextView
+                style="@style/Text.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:text="3.000 x 1"
+                android:gravity="right"
+                android:layout_marginRight="40dp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="left"
+            app:layout_constraintTop_toBottomOf="@+id/pesanan2"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Total Biaya          : "
+                android:layout_marginLeft="20dp" >
+            </TextView>
+
+            <TextView
+                style="@style/Text.Body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Rp.18.000"
+                android:gravity="right"
+                android:layout_marginRight="40dp" >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/metode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="left"
+            app:layout_constraintTop_toBottomOf="@+id/total"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Metode \nPembayaran      : "
+                android:layout_marginLeft="20dp" >
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
+                android:layout_width="184dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/cardColor2" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        style="@style/Text.Body3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Cash"
+                        android:textColor="@color/black"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="8dp">
+                    </TextView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="-50dp"
+                        android:src="@drawable/baseline_arrow_drop_down_24" >
+                    </ImageView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="left"
+            app:layout_constraintTop_toBottomOf="@+id/metode"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                style="@style/Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Status                   : "
+                android:layout_marginLeft="20dp" >
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
+                android:layout_width="184dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
+                app:cardBackgroundColor="@color/cardColor2" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        style="@style/Text.Header"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Sudah Dibayar"
+                        android:textColor="@color/status"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="8dp">
+                    </TextView>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="-50dp"
+                        android:src="@drawable/baseline_arrow_drop_down_24" >
+                    </ImageView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="70dp"
+            app:layout_constraintTop_toBottomOf="@+id/status">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                app:cardBackgroundColor="@color/cardColor"
+                app:cardCornerRadius="23.5dp" >
+
+                <TextView
+                    style="@style/Text.Footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="Selesaikan Pesanan"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/white" >
+                </TextView>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

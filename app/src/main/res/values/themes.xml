@@ -22,4 +22,31 @@
     <style name="Theme.WarmindoInspirasiIndonesia.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.WarmindoInspirasiIndonesia.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Text">font</style>
+
+    <style name="Text.Title">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+    <style name="Text.Header">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text.Body">
+        <item name="fontFamily">@font/mada_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Body2">
+        <item name="fontFamily">@font/mada_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Body3">
+        <item name="fontFamily">@font/mada_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Footer">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 </resources>

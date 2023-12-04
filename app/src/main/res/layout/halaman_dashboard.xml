@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/yellow">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
+                android:layout_height="83dp"
+                app:cardBackgroundColor="@color/cardColor" >
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/circle_profile" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ananda Rizky Pratama"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    style="@style/Text.Header"
+                    android:layout_gravity="center"
+                    android:textAlignment="center" >
+                </TextView>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/daftar">
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
+                android:layout_width="300dp"
+                android:layout_height="109dp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="22dp"
+                app:cardBackgroundColor="@color/cardShift">
+
+                <TextView
+                    style="@style/Text.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shift 1"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp">
+                </TextView>
+                <TextView
+                    style="@style/Text.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="11.00 - 17.00"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="58dp"
+                    android:layout_marginLeft="15dp">
+                </TextView>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
+                android:layout_width="300dp"
+                android:layout_height="109dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                app:cardCornerRadius="22dp"
+                app:cardBackgroundColor="@color/cardShift">
+
+                <TextView
+                    style="@style/Text.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shift 2"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp">
+                </TextView>
+                <TextView
+                    style="@style/Text.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="17.00 - 23.00"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="58dp"
+                    android:layout_marginLeft="15dp">
+                </TextView>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
+                android:layout_width="138dp"
+                android:layout_height="41dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="220dp"
+                app:cardCornerRadius="23.5dp"
+                app:cardBackgroundColor="@color/cardMasuk">
+
+                <TextView
+                    style="@style/Text.Footer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Masuk"
+                    android:textColor="@color/white"
+                    android:textAlignment="center">
+                </TextView>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
