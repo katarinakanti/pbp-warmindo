@@ -1,13 +1,10 @@
 package com.android.warmindoinspirasiindonesia.ui.home
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    fun getShifts(): ArrayList<Shift> {
+        return ShiftBak.getShift()
     }
-    val text: LiveData<String> = _text
 }
