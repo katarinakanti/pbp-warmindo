@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card1"
         android:layout_width="270dp"
-        android:layout_height="380dp"
+        android:layout_height="480dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="80dp"
@@ -20,6 +20,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cardBackgroundColor="@color/yellow">
+
+        <TextView
+            android:id="@+id/Username"
+            style="@style/Text.Body3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="170dp"
+            android:text="Username"
+            android:textColor="@color/black"
+            tools:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:autofillHints="Username"
+            app:backgroundTint="@android:color/black"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -44,37 +66,38 @@
             android:textColor="@color/black"
             app:backgroundTint="@android:color/black"/>
 
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="300dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="50dp"
+            android:autofillHints="@string/password"
+            android:ems="10"
+            app:backgroundTint="@android:color/black" />
+
         <TextView
             android:id="@+id/Password"
             style="@style/Text.Body3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="270dp"
             android:text="@string/password"
             android:textColor="@color/black"
             tools:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/editTextTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="10dp"
-            android:ems="10"
-            android:autofillHints="@string/password"
-            app:backgroundTint="@android:color/black"/>
-
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnRegrister"
             style="@style/Text.Button"
-            android:layout_width="174dp"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_background2"
-            android:text="Login"
+            android:text="Regrister"
             android:textColor="@color/black"
             android:textAlignment="center"
             app:backgroundTint="@color/cardShift"/>
@@ -93,30 +116,29 @@
         app:layout_constraintStart_toStartOf="@id/card1"
         app:layout_constraintEnd_toEndOf="@id/card1"/>
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginLeft="10dp"
-    app:layout_constraintStart_toStartOf="@id/card1"
-    app:layout_constraintTop_toBottomOf="@id/card1">
-    <TextView
-        android:id="@+id/textView5"
-        android:textSize="18dp"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum Punya Akun?"
-        android:textColor="@color/white"
-        tools:textStyle="normal" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="@id/card1"
+        app:layout_constraintTop_toBottomOf="@id/card1">
+        <TextView
+            android:id="@+id/textView5"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sudah Punya Akun?"
+            android:textColor="@color/white"
+            tools:textStyle="normal" />
 
-    <Button
-        android:id="@+id/SignUpRedirect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:background="none"
-        />
-</LinearLayout>
-
+        <Button
+            android:id="@+id/LoginRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:background="none"
+            />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
