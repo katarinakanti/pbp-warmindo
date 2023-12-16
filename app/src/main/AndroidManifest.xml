@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
-    <users-permission android:name="android.permission.INTERNET"/>
-    <users-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<!--    <users-permission android:name="android.permission.INTERNET"/>-->
+<!--    <users-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>-->
 
     <application
         android:allowBackup="true"
@@ -29,13 +29,13 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.WarmindoInspirasiIndonesia.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity
             android:name=".MainActivity"
