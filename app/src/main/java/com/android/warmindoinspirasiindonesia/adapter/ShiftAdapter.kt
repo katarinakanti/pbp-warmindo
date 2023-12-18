@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.warmindoinspirasiindonesia.databinding.ListShiftBinding
 import com.android.warmindoinspirasiindonesia.ui.home.Shift
 
-class ShiftAdapter(val context: Context, val listShift: ArrayList<Shift>) :
+class ShiftAdapter(val context: Context, val listShift: ArrayList<Shift>, private val onItemClick: (Shift) -> Unit) :
     RecyclerView.Adapter<ShiftAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ListShiftBinding) : RecyclerView.ViewHolder(binding.root)
@@ -35,6 +35,10 @@ class ShiftAdapter(val context: Context, val listShift: ArrayList<Shift>) :
             marginParams.leftMargin = 90
             marginParams.rightMargin = 90
             holder.binding.card.layoutParams = marginParams
+        }
+
+        holder.itemView.setOnClickListener {
+            onItemClick(currentShift) // Trigger the onItemClick callback
         }
     }
 
