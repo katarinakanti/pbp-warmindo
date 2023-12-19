@@ -2,10 +2,9 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card"
-    android:layout_width="293dp"
-    android:layout_height="64dp"
+    android:layout_width="340dp"
+    android:layout_height="70dp"
     android:layout_gravity="center_horizontal"
     app:cardBackgroundColor="@color/cardColor2" >
 
@@ -17,6 +16,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_gravity="center_vertical"
         android:text="MEJA 1"
         android:textColor="@color/black" />
 
@@ -25,31 +25,22 @@
         style="@style/Text.Body2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="125dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:layout_gravity="center_vertical"
         android:text="16.25.p.m."
         android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/status"
         style="@style/Text.Status"
+        android:layout_gravity="center_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="260dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:text="Belum"
-        android:textColor="@color/red" />
-
-    <TextView
-        android:id="@+id/status2"
-        style="@style/Text.Status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="215dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="10dp"
-        android:text="Dibayar"
+        android:text="Baru"
         android:textColor="@color/red" />
 </androidx.cardview.widget.CardView>

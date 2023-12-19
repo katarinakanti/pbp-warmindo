@@ -9,7 +9,7 @@
     tools:context=".ui.transaksi.TransaksiFragment">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/title"
         style="@style/Text.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,15 +21,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/time"
         style="@style/Text.Body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
         android:text="@string/time"
         android:textColor="@color/black"
-        app:layout_constraintTop_toBottomOf="@id/textView4"
-        app:layout_constraintStart_toStartOf="@id/textView4"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="@id/title"
         tools:layout_editor_absoluteX="15dp" />
 
     <Button
@@ -42,18 +42,22 @@
         android:background="@drawable/button_background"
         android:text="@string/tambah"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/textView6"
-        app:layout_constraintTop_toBottomOf="@id/textView6"
+        app:layout_constraintStart_toEndOf="@id/time"
+        app:layout_constraintTop_toBottomOf="@id/time"
         tools:backgroundTint="@color/cardColor" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_transaksi"
+        android:id="@+id/rv_shift"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="180dp"
-        app:layout_constraintStart_toStartOf="@id/textView4"
-        app:layout_constraintTop_toBottomOf="@id/button3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/list_transaksi" />
 </androidx.constraintlayout.widget.ConstraintLayout>

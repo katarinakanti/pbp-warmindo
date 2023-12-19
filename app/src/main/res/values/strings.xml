@@ -2,6 +2,8 @@
     <string name="app_name">Warmindo Inspirasi Indonesia</string>
     <string name="app_name2">Halaman Shift</string>
     <string name="app_name3">Detail Transaksi</string>
+    <string name="app_name4">Halaman Transaksi</string>
+    <string name="app_name5">Halaman Editor</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Warmindo Inspirasi indonesia</string>
@@ -17,6 +19,8 @@
     <string name="masuk">Masuk</string>
     <string name="action_profile">Profile</string>
     <string name="action_logout">Logout</string>
+    <string name="title2">Shift 1
+    11.00-17.00</string>
     <string name="title">Shift 1</string>
     <string name="time">11.00-17.00</string>
     <string name="tambah">+Tambah</string>
