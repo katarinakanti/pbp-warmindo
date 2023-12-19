@@ -26,7 +26,8 @@ class DetailBak {
             "1",
             "2",
             "3",
-            "4"
+            "4",
+            "5"
         )
         private val total = arrayOf(
             "18.000",
