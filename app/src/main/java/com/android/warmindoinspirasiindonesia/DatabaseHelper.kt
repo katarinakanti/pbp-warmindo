@@ -4,6 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.android.warmindoinspirasiindonesia.ui.detail.Detail
+
 class DatabaseHelper(private val context: Context)
     :SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
 
@@ -49,6 +51,7 @@ class DatabaseHelper(private val context: Context)
 
         // DetailTransaksi Table
         private const val TABLE_DETAIL_TRANSAKSI = "detailtransaksi"
+        private const val COLUMN_ID_DETAIL_TRANSAKSI = "id_transaksi"
         private const val COLUMN_ID_MENU_DETAIL = "idmenu"
         private const val COLUMN_NAMA_MENU_DETAIL = "namamenu"
         private const val COLUMN_JUMLAH = "jumlah"
@@ -327,6 +330,34 @@ class DatabaseHelper(private val context: Context)
         val db = writableDatabase
         return db.update(TABLE_TRANSAKSI, values, "$COLUMN_ID_TRANSAKSI=?", arrayOf(idTransaksi.toString()))
     }
+
+    //Fungsi Update Status
+    fun updateStatus(status : Detail){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_STATUS_DETAIL, status.status)
+        }
+        val whereClause = "$COLUMN_ID_DETAIL_TRANSAKSI= ?"
+        val whereArgs = arrayOf(status.id.toString())
+        db.update(TABLE_NAME, values, whereClause, whereArgs)
+        db.close()
+    }
+
+    fun getDetailByID(detailID : Int): Detail{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_DETAIL_TRANSAKSI WHERE $COLUMN_ID_DETAIL_TRANSAKSI = $detailID"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID_DETAIL_TRANSAKSI))
+        val status = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS_DETAIL))
+
+        cursor.close()
+        db.close()
+        return Detail(id, status)
+    }
+
+
 
     // Delete Transaksi record
     fun deleteTransaksi(idTransaksi: Int): Int {

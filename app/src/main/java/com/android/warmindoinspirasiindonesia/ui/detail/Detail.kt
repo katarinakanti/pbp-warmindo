@@ -1,6 +1,8 @@
 package com.android.warmindoinspirasiindonesia.ui.detail
 
 class Detail {
+
+    var id: String? = null
     var shift: String? = null
     var time: String? = null
     var nomerPesanan: String? = null
