@@ -22,7 +22,9 @@ class EditorActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Status Pesanan ${statusPesanan.selectedItem}",
                 Toast.LENGTH_SHORT)
             toast.show()
+            val selectedStatus = statusPesanan.selectedItem.toString()
             val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra("STATUS_PESANAN", selectedStatus)
             startActivity(intent)
             finish()
         }
