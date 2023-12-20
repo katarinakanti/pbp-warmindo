@@ -1,0 +1,64 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.WarmindoInspirasiIndonesia" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/cardColor</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.WarmindoInspirasiIndonesia.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.WarmindoInspirasiIndonesia.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.WarmindoInspirasiIndonesia.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Text">font</style>
+
+    <style name="Text.Title">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+    <style name="Text.Header">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Text.Body">
+        <item name="fontFamily">@font/mada_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Body2">
+        <item name="fontFamily">@font/mada_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Body3">
+        <item name="fontFamily">@font/mada_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Button">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="Text.Button2">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Text.Email">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="Text.Status">
+        <item name="fontFamily">@font/moul_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>
