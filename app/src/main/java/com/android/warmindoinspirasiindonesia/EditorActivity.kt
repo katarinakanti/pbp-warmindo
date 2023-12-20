@@ -28,7 +28,6 @@ class EditorActivity : AppCompatActivity() {
             val intent1 = Intent(this, DetailActivity::class.java)
             intent1.putExtra("STATUS_PESANAN", selectedStatus)
             startActivity(intent1)
-//            finish()
 
             // Menggunakan Intent2 untuk TransaksiActivity
             val intent2 = Intent(this, TransaksiActivity::class.java)

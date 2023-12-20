@@ -2,6 +2,8 @@
     <string name="app_name">Warmindo Inspirasi Indonesia</string>
     <string name="app_name2">Halaman Shift</string>
     <string name="app_name3">Detail Transaksi</string>
+    <string name="app_name4">Halaman Transaksi</string>
+    <string name="app_name5">Halaman Ubah</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Warmindo Inspirasi indonesia</string>

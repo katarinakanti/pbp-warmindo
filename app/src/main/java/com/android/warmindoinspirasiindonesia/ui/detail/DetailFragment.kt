@@ -9,11 +9,14 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.android.warmindoinspirasiindonesia.R
 import com.android.warmindoinspirasiindonesia.databinding.FragmentDetailBinding
+import com.android.warmindoinspirasiindonesia.ui.transaksi.Transaksi
 
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
     private lateinit var viewModel: DetailViewModel
+
+    private var selectedTransaksi: Transaksi? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,4 +39,6 @@ class DetailFragment : Fragment() {
 
         return binding.root
     }
+
+
 }
