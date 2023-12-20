@@ -28,7 +28,8 @@ class DetailActivity : AppCompatActivity() {
         btnUbah.setOnClickListener {
             val intent = Intent(this, EditorActivity::class.java)
             startActivity(intent)
-            finish()
+            Log.d("DetailActivity", "EditorActivity started")
+//            finish()
         }
 
     }

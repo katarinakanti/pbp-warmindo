@@ -1,14 +1,13 @@
 package com.android.warmindoinspirasiindonesia.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.android.warmindoinspirasiindonesia.databinding.ListTransaksiBinding
 import com.android.warmindoinspirasiindonesia.ui.transaksi.Transaksi
-import androidx.navigation.findNavController
-import com.android.warmindoinspirasiindonesia.ui.transaksi.TransaksiFragmentDirections
-import kotlin.math.min
+import com.android.warmindoinspirasiindonesia.DetailActivity
 
 class TransaksiAdapter(val context: Context, val listTransaksi: ArrayList<Transaksi>) :
     RecyclerView.Adapter<TransaksiAdapter.ViewHolder>() {
@@ -28,9 +27,11 @@ class TransaksiAdapter(val context: Context, val listTransaksi: ArrayList<Transa
         holder.binding.status.text = currentTransaksi.getStatusBayar()
 
         holder.binding.card.setOnClickListener {
-            // Navigate to DetailFragment when the card is clicked
-            val action = TransaksiFragmentDirections.actionNavTransaksiToNavDetail()
-            holder.itemView.findNavController().navigate(action)
+            // Start DetailActivity when the card is clicked
+            val intent = Intent(context, DetailActivity::class.java)
+            // Optionally, you can pass data to DetailActivity using intent.putExtra()
+            // intent.putExtra("KEY", "VALUE")
+            context.startActivity(intent)
         }
 
         if (position == 0) {
