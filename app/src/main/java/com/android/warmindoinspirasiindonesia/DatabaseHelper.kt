@@ -354,7 +354,8 @@ class DatabaseHelper(private val context: Context)
 
         cursor.close()
         db.close()
-        return Detail(id, status)
+//        return Detail(id, status)
+        return Detail()
     }
 
 

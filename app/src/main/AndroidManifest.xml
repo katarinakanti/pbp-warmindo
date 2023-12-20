@@ -14,7 +14,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            
             android:name=".EditorActivity"
             android:exported="true"
             android:theme="@style/Theme.WarmindoInspirasiIndonesia.NoActionBar">
@@ -53,22 +52,16 @@
             android:theme="@style/Theme.WarmindoInspirasiIndonesia.NoActionBar" />
         <activity
             android:theme="@style/Theme.WarmindoInspirasiIndonesia.NoActionBar"
-            android:name=".TransaksiActivity"
-            android:exported="false"
-            android:label="@string/app_name4">
-        </activity>
-        <activity
-            android:theme="@style/Theme.WarmindoInspirasiIndonesia.NoActionBar"
             android:name=".DetailActivity"
             android:exported="false"
             android:label="@string/app_name3">
         </activity>
-        <activity
-            android:theme="@style/Theme.WarmindoInspirasiIndonesia.NoActionBar"
-            android:name=".LoginActivity"
-            android:exported="false"
-            android:label="@string/app_name5">
-        </activity>
+<!--        <activity-->
+<!--            android:theme="@style/Theme.WarmindoInspirasiIndonesia.NoActionBar"-->
+<!--            android:name=".LoginActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/app_name5">-->
+<!--        </activity>-->
     </application>
 
 </manifest>
