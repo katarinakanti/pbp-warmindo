@@ -87,6 +87,45 @@ class DatabaseHelper(private val context: Context)
                 "${ShiftContract.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "${ShiftContract.COLUMN_TITLE} TEXT, " +
                 "${ShiftContract.COLUMN_TIME} TEXT)",
+
+        "CREATE TABLE ${MejaContract.TABLE_NAME} (" +
+                "${MejaContract.COLUMN_ID_MEJA} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${MejaContract.COLUMN_ID_WARUNG_MEJA} INTEGER, " +
+                "${MejaContract.COLUMN_KODE_MEJA} TEXT)",
+
+        "CREATE TABLE ${MenuContract.TABLE_NAME} (" +
+                "${MenuContract.COLUMN_ID_MENU} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${MenuContract.COLUMN_NAMA_MENU} TEXT, " +
+                "${MenuContract.COLUMN_KATEGORI} TEXT, " +
+                "${MenuContract.COLUMN_HARGA} REAL, " +
+                "${MenuContract.COLUMN_GAMBAR} TEXT)",
+
+        "CREATE TABLE ${TransaksiContract.TABLE_NAME} (" +
+                "${TransaksiContract.COLUMN_ID_TRANSAKSI} INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "${TransaksiContract.COLUMN_TANGGAL} TEXT, " +
+                "${TransaksiContract.COLUMN_WAKTU} TEXT, " +
+                "${TransaksiContract.COLUMN_SHIFT} INTEGER, " +
+                "${TransaksiContract.COLUMN_ID_PENGGUNA} INTEGER, " +
+                "${TransaksiContract.COLUMN_ID_PELANGGAN} INTEGER, " +
+                "${TransaksiContract.COLUMN_STATUS} TEXT, " +
+                "${TransaksiContract.COLUMN_KODE_MEJA_TRANSAKSI} TEXT, " +
+                "${TransaksiContract.COLUMN_NAMA_PELANGGAN} TEXT, " +
+                "${TransaksiContract.COLUMN_TOTAL} REAL, " +
+                "${TransaksiContract.COLUMN_METODE_PEMBAYARAN} TEXT, " +
+                "${TransaksiContract.COLUMN_TOTAL_DISKON} REAL, " +
+                "${TransaksiContract.COLUMN_ID_PROMOSI} INTEGER)",
+
+        "CREATE TABLE ${DetailTransaksiContract.TABLE_NAME} (" +
+                "${DetailTransaksiContract.COLUMN_ID_TRANSAKSI} INTEGER, " +
+                "${DetailTransaksiContract.COLUMN_ID_MENU_DETAIL} INTEGER, " +
+                "${DetailTransaksiContract.COLUMN_NAMA_MENU_DETAIL} TEXT, " +
+                "${DetailTransaksiContract.COLUMN_HARGA} REAL, " +
+                "${DetailTransaksiContract.COLUMN_JUMLAH} INTEGER, " +
+                "${DetailTransaksiContract.COLUMN_SUBTOTAL} REAL, " +
+                "${DetailTransaksiContract.COLUMN_STATUS_DETAIL} TEXT, " +
+                "FOREIGN KEY(${DetailTransaksiContract.COLUMN_ID_TRANSAKSI}) REFERENCES ${TransaksiContract.TABLE_NAME}(${TransaksiContract.COLUMN_ID_TRANSAKSI}), " +
+                "FOREIGN KEY(${DetailTransaksiContract.COLUMN_ID_MENU_DETAIL}) REFERENCES ${MenuContract.TABLE_NAME}(${MenuContract.COLUMN_ID_MENU}), " +
+                "PRIMARY KEY(${DetailTransaksiContract.COLUMN_ID_TRANSAKSI}, ${DetailTransaksiContract.COLUMN_ID_MENU_DETAIL}))"
     )
 
 
@@ -168,44 +207,60 @@ class DatabaseHelper(private val context: Context)
         return shiftsList
     }
 
+    object MejaContract {
+        // Table name
+        const val TABLE_NAME = "MEJA"
 
+        // Columns
+        const val COLUMN_ID_MEJA = "ID_MEJA"
+        const val COLUMN_ID_WARUNG_MEJA = "ID_WARUNG"
+        const val COLUMN_KODE_MEJA = "KODE_MEJA"
+    }
+
+    data class Meja(val idMeja: Int, val idWarung: Int, val kodeMeja: String)
+
+
+    // Methods to interact with the "meja" table
     fun insertMeja(idWarung: Int, kodeMeja: String): Long {
         val values = ContentValues().apply {
-            put(COLUMN_ID_WARUNG_MEJA, idWarung)
-            put(COLUMN_KODE_MEJA, kodeMeja)
+            put(MejaContract.COLUMN_ID_WARUNG_MEJA, idWarung)
+            put(MejaContract.COLUMN_KODE_MEJA, kodeMeja)
         }
         val db = writableDatabase
-        return db.insert(TABLE_MEJA, null, values)
+        return db.insert(MejaContract.TABLE_NAME, null, values)
     }
 
     fun getAllMeja(): List<Meja> {
         val mejaList = mutableListOf<Meja>()
-        val query = "SELECT * FROM $TABLE_MEJA"
         val db = readableDatabase
-        val cursor = db.rawQuery(query, null)
+        val projection = arrayOf(
+            MejaContract.COLUMN_ID_MEJA,
+            MejaContract.COLUMN_ID_WARUNG_MEJA,
+            MejaContract.COLUMN_KODE_MEJA
+        )
 
-        cursor.use {
-            while (it.moveToNext()) {
-                val idMejaIndex = it.getColumnIndex(COLUMN_ID_MEJA)
-                val idWarungIndex = it.getColumnIndex(COLUMN_ID_WARUNG_MEJA)
-                val kodeMejaIndex = it.getColumnIndex(COLUMN_KODE_MEJA)
+        val cursor = db.query(
+            MejaContract.TABLE_NAME,
+            projection,
+            null,
+            null,
+            null,
+            null,
+            null
+        )
 
-                // Check if the column indices are valid
-                if (idMejaIndex >= 0 && idWarungIndex >= 0 && kodeMejaIndex >= 0) {
-                    val idMeja = it.getInt(idMejaIndex)
-                    val idWarung = it.getInt(idWarungIndex)
-                    val kodeMeja = it.getString(kodeMejaIndex)
+        with(cursor) {
+            while (moveToNext()) {
+                val idMeja = getInt(getColumnIndexOrThrow(MejaContract.COLUMN_ID_MEJA))
+                val idWarung = getInt(getColumnIndexOrThrow(MejaContract.COLUMN_ID_WARUNG_MEJA))
+                val kodeMeja = getString(getColumnIndexOrThrow(MejaContract.COLUMN_KODE_MEJA))
 
-                    val meja = Meja(idMeja, idWarung, kodeMeja)
-                    mejaList.add(meja)
-                } else {
-                    // Handle the case where column indices are not valid
-                    // This could be due to a column name typo or other issues
-                    // You may log an error, throw an exception, or take appropriate action
-                }
+                val meja = Meja(idMeja, idWarung, kodeMeja)
+                mejaList.add(meja)
             }
         }
 
+        cursor.close()
         return mejaList
     }
 
@@ -225,6 +280,20 @@ class DatabaseHelper(private val context: Context)
         val db = writableDatabase
         return db.delete(TABLE_MEJA, "$COLUMN_ID_MEJA=?", arrayOf(idMeja.toString()))
     }
+
+    object MenuContract {
+        // Table name
+        const val TABLE_NAME = "MENU"
+
+        // Columns
+        const val COLUMN_ID_MENU = "ID_MENU"
+        const val COLUMN_NAMA_MENU = "NAMA_MENU"
+        const val COLUMN_KATEGORI = "KATEGORI"
+        const val COLUMN_HARGA = "HARGA"
+        const val COLUMN_GAMBAR = "GAMBAR"
+    }
+
+    data class Menu(val idMenu: Int, val namaMenu: String, val kategori: String, val harga: Double, val gambar: String)
 
     fun insertMenu(namaMenu: String, kategori: String, harga: Double, gambar: String): Long {
         val values = ContentValues().apply {
@@ -291,6 +360,42 @@ class DatabaseHelper(private val context: Context)
         return db.delete(TABLE_MENU, "$COLUMN_ID_MENU=?", arrayOf(idMenu.toString()))
     }
 
+    object TransaksiContract {
+        // Table name
+        const val TABLE_NAME = "TRANSAKSI"
+
+        // Columns
+        const val COLUMN_ID_TRANSAKSI = "ID_TRANSAKSI"
+        const val COLUMN_TANGGAL = "TANGGAL"
+        const val COLUMN_WAKTU = "WAKTU"
+        const val COLUMN_SHIFT = "SHIFT"
+        const val COLUMN_ID_PENGGUNA = "ID_PENGGUNA"
+        const val COLUMN_ID_PELANGGAN = "ID_PELANGGAN"
+        const val COLUMN_STATUS = "STATUS"
+        const val COLUMN_KODE_MEJA_TRANSAKSI = "KODE_MEJA_TRANSAKSI"
+        const val COLUMN_NAMA_PELANGGAN = "NAMA_PELANGGAN"
+        const val COLUMN_TOTAL = "TOTAL"
+        const val COLUMN_METODE_PEMBAYARAN = "METODE_PEMBAYARAN"
+        const val COLUMN_TOTAL_DISKON = "TOTAL_DISKON"
+        const val COLUMN_ID_PROMOSI = "ID_PROMOSI"
+    }
+
+    data class Transaksi(
+        val idTransaksi: Int,
+        val tanggal: String,
+        val waktu: String,
+        val shift: Int,
+        val idPengguna: Int,
+        val idPelanggan: Int?,
+        val status: String,
+        val kodeMejaTransaksi: String,
+        val namaPelanggan: String,
+        val total: Double,
+        val metodePembayaran: String,
+        val totalDiskon: Double,
+        val idPromosi: Int?
+    )
+
     fun insertTransaksi(
         tanggal: String,
         waktu: String,
@@ -306,21 +411,21 @@ class DatabaseHelper(private val context: Context)
         idPromosi: Int?
     ): Long {
         val values = ContentValues().apply {
-            put(COLUMN_TANGGAL, tanggal)
-            put(COLUMN_WAKTU, waktu)
-            put(COLUMN_SHIFT, shift)
-            put(COLUMN_ID_PENGGUNA, idPengguna)
-            put(COLUMN_ID_PELANGGAN, idPelanggan)
-            put(COLUMN_STATUS, status)
-            put(COLUMN_KODE_MEJA_TRANSAKSI, kodeMeja)
-            put(COLUMN_NAMA_PELANGGAN, namaPelanggan)
-            put(COLUMN_TOTAL, total)
-            put(COLUMN_METODE_PEMBAYARAN, metodePembayaran)
-            put(COLUMN_TOTAL_DISKON, totalDiskon)
-            put(COLUMN_ID_PROMOSI, idPromosi)
+            put(TransaksiContract.COLUMN_TANGGAL, tanggal)
+            put(TransaksiContract.COLUMN_WAKTU, waktu)
+            put(TransaksiContract.COLUMN_SHIFT, shift)
+            put(TransaksiContract.COLUMN_ID_PENGGUNA, idPengguna)
+            put(TransaksiContract.COLUMN_ID_PELANGGAN, idPelanggan)
+            put(TransaksiContract.COLUMN_STATUS, status)
+            put(TransaksiContract.COLUMN_KODE_MEJA_TRANSAKSI, kodeMeja)
+            put(TransaksiContract.COLUMN_NAMA_PELANGGAN, namaPelanggan)
+            put(TransaksiContract.COLUMN_TOTAL, total)
+            put(TransaksiContract.COLUMN_METODE_PEMBAYARAN, metodePembayaran)
+            put(TransaksiContract.COLUMN_TOTAL_DISKON, totalDiskon)
+            put(TransaksiContract.COLUMN_ID_PROMOSI, idPromosi)
         }
         val db = writableDatabase
-        return db.insert(TABLE_TRANSAKSI, null, values)
+        return db.insert(TransaksiContract.TABLE_NAME, null, values)
     }
 
     // Retrieve all Transaksi records
@@ -422,6 +527,29 @@ class DatabaseHelper(private val context: Context)
         return db.delete(TABLE_TRANSAKSI, "$COLUMN_ID_TRANSAKSI=?", arrayOf(idTransaksi.toString()))
     }
 
+    object DetailTransaksiContract {
+        // Table name
+        const val TABLE_NAME = "DETAIL_TRANSAKSI"
+
+        // Columns
+        const val COLUMN_ID_TRANSAKSI = "ID_TRANSAKSI"
+        const val COLUMN_ID_MENU_DETAIL = "ID_MENU"
+        const val COLUMN_NAMA_MENU_DETAIL = "NAMA_MENU_DETAIL"
+        const val COLUMN_HARGA = "HARGA"
+        const val COLUMN_JUMLAH = "JUMLAH"
+        const val COLUMN_SUBTOTAL = "SUBTOTAL"
+        const val COLUMN_STATUS_DETAIL = "STATUS_DETAIL"
+    }
+
+    data class DetailTransaksi(
+        val idTransaksi: Int,
+        val idMenuDetail: Int,
+        val namaMenuDetail: String,
+        val harga: Double,
+        val jumlah: Int,
+        val subtotal: Double,
+        val statusDetail: String
+    )
 
     // CRUD operations for DetailTransaksi Table
     fun insertDetailTransaksi(
@@ -434,16 +562,16 @@ class DatabaseHelper(private val context: Context)
         statusDetail: String
     ): Long {
         val values = ContentValues().apply {
-            put(COLUMN_ID_TRANSAKSI, idTransaksi)
-            put(COLUMN_ID_MENU_DETAIL, idMenuDetail)
-            put(COLUMN_NAMA_MENU_DETAIL, namaMenuDetail)
-            put(COLUMN_HARGA, harga)
-            put(COLUMN_JUMLAH, jumlah)
-            put(COLUMN_SUBTOTAL, subtotal)
-            put(COLUMN_STATUS_DETAIL, statusDetail)
+            put(DetailTransaksiContract.COLUMN_ID_TRANSAKSI, idTransaksi)
+            put(DetailTransaksiContract.COLUMN_ID_MENU_DETAIL, idMenuDetail)
+            put(DetailTransaksiContract.COLUMN_NAMA_MENU_DETAIL, namaMenuDetail)
+            put(DetailTransaksiContract.COLUMN_HARGA, harga)
+            put(DetailTransaksiContract.COLUMN_JUMLAH, jumlah)
+            put(DetailTransaksiContract.COLUMN_SUBTOTAL, subtotal)
+            put(DetailTransaksiContract.COLUMN_STATUS_DETAIL, statusDetail)
         }
         val db = writableDatabase
-        return db.insert(TABLE_DETAIL_TRANSAKSI, null, values)
+        return db.insert(DetailTransaksiContract.TABLE_NAME, null, values)
     }
 
     // Retrieve all DetailTransaksi records

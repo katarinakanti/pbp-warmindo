@@ -41,6 +41,8 @@
             android:layout_marginEnd="10dp"
             android:ems="10"
             android:autofillHints="Username"
+            android:inputType="text"
+            android:textColor="@color/black"
             app:backgroundTint="@android:color/black"/>
 
         <TextView
@@ -62,6 +64,7 @@
             android:layout_marginTop="110dp"
             android:layout_marginEnd="10dp"
             android:ems="10"
+            android:inputType="textEmailAddress"
             android:autofillHints="@string/email"
             android:textColor="@color/black"
             app:backgroundTint="@android:color/black"/>
@@ -75,6 +78,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="50dp"
             android:autofillHints="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
             android:ems="10"
             app:backgroundTint="@android:color/black" />
 
@@ -137,9 +142,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"
             />
-<!--            android:background="none"-->
-<!--        />-->
+        <!--            android:background="none"-->
+        <!--        />-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

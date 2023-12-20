@@ -36,6 +36,7 @@
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:inputType="textEmailAddress"
             android:layout_marginStart="10dp"
             android:layout_marginTop="110dp"
             android:layout_marginEnd="10dp"
@@ -62,7 +63,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="200dp"
             android:layout_marginEnd="10dp"
+            android:inputType="textPassword"
             android:ems="10"
+            android:textColor="@color/black"
             android:autofillHints="@string/password"
             app:backgroundTint="@android:color/black"/>
 
@@ -93,31 +96,33 @@
         app:layout_constraintStart_toStartOf="@id/card1"
         app:layout_constraintEnd_toEndOf="@id/card1"/>
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginLeft="10dp"
-    app:layout_constraintStart_toStartOf="@id/card1"
-    app:layout_constraintTop_toBottomOf="@id/card1">
-    <TextView
-        android:id="@+id/textView5"
-        android:textSize="18dp"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Belum Punya Akun?"
-        android:textColor="@color/white"
-        tools:textStyle="normal" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintStart_toStartOf="@id/card1"
+        app:layout_constraintTop_toBottomOf="@id/card1">
+        <TextView
+            android:id="@+id/textView5"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum Punya Akun?"
+            android:textColor="@color/white"
+            tools:textStyle="normal" />
 
-    <Button
-        android:id="@+id/SignUpRedirect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"
-        />
-<!--        android:background="none"-->
-<!--        />-->
-</LinearLayout>
+        <Button
+            android:id="@+id/SignUpRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:background="@android:color/transparent"
+            />
+        <!--        android:background="none"-->
+        <!--        />-->
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
