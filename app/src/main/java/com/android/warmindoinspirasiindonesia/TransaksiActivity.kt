@@ -9,6 +9,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import com.android.warmindoinspirasiindonesia.databinding.ActivityTransaksiBinding
+import com.android.warmindoinspirasiindonesia.ui.transaksi.TransaksiFragment
 
 class TransaksiActivity : AppCompatActivity() {
 
@@ -35,6 +36,11 @@ class TransaksiActivity : AppCompatActivity() {
         setSupportActionBar(toolbar) // Set the Toolbar as the support action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+
+        // Load TransaksiFragment in the container below the Toolbar
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.nav_host_fragment_content_transaksi, TransaksiFragment())
+        fragmentTransaction.commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -44,7 +50,7 @@ class TransaksiActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_fragment_content_transaksi)
+        val navController = findNavController(R.id.nav_host_fragment_content_transaksi)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

@@ -46,5 +46,3 @@ class ShiftAdapter(val context: Context, val listShift: ArrayList<Shift>, privat
         return listShift.size
     }
 }
-
-
