@@ -50,10 +50,6 @@ class TransaksiFragment : Fragment() {
             hour.text = arguments?.getString(EXTRA_SHIFT_HOUR)
         }
 
-        binding.button3.setOnClickListener {
-            findNavController().navigate(R.id.action_nav_transaksi_to_nav_detail)
-        }
-
     }
 
     companion object {

@@ -3,7 +3,9 @@ package com.android.warmindoinspirasiindonesia
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.Menu
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -20,6 +22,8 @@ class TransaksiActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTransaksiBinding
     private lateinit var toolbar: Toolbar
 
+    private lateinit var tvStatus: TextView
+
     companion object {
         const val EXTRA_SELECTED_SHIFT = "extra_selected_shift"
     }
@@ -29,8 +33,13 @@ class TransaksiActivity : AppCompatActivity() {
         binding = ActivityTransaksiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        tvStatus = findViewById(R.id.status)
+
         // Retrieve the selectedShift data from the Intent
         val selectedShift: String? = intent.getStringExtra(EXTRA_SELECTED_SHIFT)
+        val receivedStatus = intent.getStringExtra("STATUS_PESANAN")
+        Log.d("DetailActivity", "Status Pesanan: $receivedStatus")
+        tvStatus.text = receivedStatus
 
         selectedShift?.let {
             Toast.makeText(this, "Shift selected in TransaksiActivity: ${it.toString()}", Toast.LENGTH_SHORT).show()
@@ -59,7 +68,7 @@ class TransaksiActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
 //        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        val navController = findNavController(R.id.nav_fragment_content_transaksi)
+        val navController = findNavController(R.id.nav_host_fragment_content_transaksi)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

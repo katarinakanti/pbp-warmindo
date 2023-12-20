@@ -11,7 +11,7 @@ import com.android.warmindoinspirasiindonesia.EditorActivity
 import com.android.warmindoinspirasiindonesia.R
 import com.android.warmindoinspirasiindonesia.ui.detail.Detail
 
-abstract class DetailAdapter(private var status: List<Detail>) :
+abstract class  DetailAdapter(private var status: List<Detail>) :
     RecyclerView.Adapter<DetailAdapter.DetailViewHolder>() {
 
     class DetailViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){

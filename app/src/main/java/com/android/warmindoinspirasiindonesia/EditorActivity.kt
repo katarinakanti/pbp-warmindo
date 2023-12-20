@@ -23,10 +23,16 @@ class EditorActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT)
             toast.show()
             val selectedStatus = statusPesanan.selectedItem.toString()
-            val intent = Intent(this, DetailActivity::class.java)
-            intent.putExtra("STATUS_PESANAN", selectedStatus)
-            startActivity(intent)
-            finish()
+
+            // Menggunakan Intent1 untuk DetailActivity
+            val intent1 = Intent(this, DetailActivity::class.java)
+            intent1.putExtra("STATUS_PESANAN", selectedStatus)
+            startActivity(intent1)
+
+            // Menggunakan Intent2 untuk TransaksiActivity
+            val intent2 = Intent(this, TransaksiActivity::class.java)
+            intent2.putExtra("STATUS_PESANAN", selectedStatus)
+            startActivity(intent2)
         }
     }
 }
