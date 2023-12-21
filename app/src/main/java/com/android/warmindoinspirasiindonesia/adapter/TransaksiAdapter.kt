@@ -9,7 +9,7 @@ import com.android.warmindoinspirasiindonesia.databinding.ListTransaksiBinding
 import com.android.warmindoinspirasiindonesia.ui.transaksi.Transaksi
 import com.android.warmindoinspirasiindonesia.DetailActivity
 
-class TransaksiAdapter(val context: Context, val listTransaksi: ArrayList<Transaksi>) :
+class TransaksiAdapter(val context: Context, val listTransaksi: ArrayList<Transaksi>, val shift: String?) :
     RecyclerView.Adapter<TransaksiAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ListTransaksiBinding) : RecyclerView.ViewHolder(binding.root)
@@ -29,8 +29,9 @@ class TransaksiAdapter(val context: Context, val listTransaksi: ArrayList<Transa
         holder.binding.card.setOnClickListener {
             // Start DetailActivity when the card is clicked
             val intent = Intent(context, DetailActivity::class.java)
-            // Optionally, you can pass data to DetailActivity using intent.putExtra()
-            // intent.putExtra("KEY", "VALUE")
+             intent.putExtra("MEJA", currentTransaksi.getMeja())
+            intent.putExtra("STATUS_BAYAR", currentTransaksi.getStatusBayar())
+            intent.putExtra("SHIFT", shift)
             context.startActivity(intent)
         }
 

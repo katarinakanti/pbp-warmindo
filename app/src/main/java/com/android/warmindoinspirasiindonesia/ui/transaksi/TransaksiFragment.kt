@@ -40,7 +40,7 @@ class TransaksiFragment : Fragment() {
 
         // Set up RecyclerView with the TransaksiAdapter
         val recyclerView: RecyclerView = view.findViewById(R.id.rv_transaksi)
-        val adapter = TransaksiAdapter(requireContext(), sampleTransaksiList)
+        val adapter = TransaksiAdapter(requireContext(), sampleTransaksiList, arguments?.getString(EXTRA_SHIFT_TITLE))
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
