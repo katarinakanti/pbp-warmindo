@@ -2,7 +2,7 @@ package com.android.warmindoinspirasiindonesia.ui.transaksi
 
 class TransaksiBak {
     companion object{
-        private val meja = arrayOf(
+        private val nomerMeja = arrayOf(
             "Meja 1",
             "Meja 2",
             "Meja 3",
@@ -25,9 +25,9 @@ class TransaksiBak {
         )
         fun getTransaksi(): ArrayList<Transaksi> {
             val transaksis = ArrayList<Transaksi>()
-            for (i in meja.indices) {
+            for (i in nomerMeja.indices) {
                 val transaksi = Transaksi()
-                transaksi.setNomerMeja(meja[i])
+                transaksi.setMeja(nomerMeja[i])
                 transaksi.setWaktu(jam[i])
                 transaksi.setStatusBayar(status[i])
                 transaksis.add(transaksi)

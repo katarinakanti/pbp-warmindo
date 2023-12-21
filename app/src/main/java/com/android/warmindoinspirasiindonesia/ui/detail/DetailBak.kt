@@ -23,10 +23,11 @@ class DetailBak {
             "10"
         )
         private val nomerMeja = arrayOf(
-            "1",
-            "2",
-            "3",
-            "4"
+            "Meja 1",
+            "Meja 2",
+            "Meja 3",
+            "Meja 4",
+            "Meja 5",
         )
         private val total = arrayOf(
             "18.000",
@@ -47,9 +48,11 @@ class DetailBak {
             "E-Wallet"
         )
         private val status = arrayOf(
-            "Belum Dibayar",
-            "Sudah Dibayar",
-            "Sedang Dimasak"
+            "Baru",
+            "Diproses",
+            "Disajikan",
+            "Selesai",
+            "Selesai"
         )
         private val menu2 = arrayOf(
             "15.000",

@@ -22,7 +22,7 @@ class TransaksiAdapter(val context: Context, val listTransaksi: ArrayList<Transa
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Set values to the views
         val currentTransaksi = listTransaksi[position]
-        holder.binding.meja.text = currentTransaksi.getNomerMeja()
+        holder.binding.meja.text = currentTransaksi.getMeja()
         holder.binding.jam.text = currentTransaksi.getWaktu()
         holder.binding.status.text = currentTransaksi.getStatusBayar()
 

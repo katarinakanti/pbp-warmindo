@@ -3,13 +3,17 @@ package com.android.warmindoinspirasiindonesia.ui.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.warmindoinspirasiindonesia.ui.home.Shift
+import com.android.warmindoinspirasiindonesia.ui.home.ShiftBak
 
 class DetailViewModel : ViewModel() {
+    private val details = MutableLiveData<List<Detail>>() // Change to List<Detail>
 
-    private val _detail = MutableLiveData<Detail>()
-    val detail: LiveData<Detail> = _detail
+    fun setDetails(detailList: List<Detail>) {
+        details.value = detailList
+    }
 
-    fun setDetail(detail: Detail) {
-        _detail.value = detail
+    fun getDetails(): LiveData<List<Detail>> {
+        return details
     }
 }

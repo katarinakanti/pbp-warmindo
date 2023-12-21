@@ -1,16 +1,16 @@
 package com.android.warmindoinspirasiindonesia.ui.transaksi
 
 class Transaksi {
-    var meja: String? = null
+    var nomerMeja: String? = null
     var jam: String? = null
     var status: String? = null
 
-    fun getNomerMeja(): String? {
-        return meja
+    fun getMeja(): String? {
+        return nomerMeja
     }
 
-    fun setNomerMeja(meja: String?) {
-        this.meja = meja
+    fun setMeja(nomerMeja: String?) {
+        this.nomerMeja = nomerMeja
     }
 
     fun getWaktu(): String? {
